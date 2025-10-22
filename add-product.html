@@ -70,6 +70,28 @@
 
 
 
+<script>
+  document.getElementById("productForm").addEventListener("submit", function(e){
+    e.preventDefault(); // stop form reload
+    const pname = document.getElementById("pname").value;
+    const price = document.getElementById("price").value;
+    const qty = document.getElementById("qty").value;
+
+    if(pname && price && qty){
+      document.getElementById("message").innerHTML = `
+        <div class="alert alert-success">
+          <strong>${pname}</strong> has been added successfully!<br>
+          Price: ₦${price}, Quantity: ${qty}
+        </div>`;
+      this.reset();
+    } else {
+      document.getElementById("message").innerHTML = `
+        <div class="alert alert-danger">Please fill all fields.</div>`;
+    }
+  });
+</script>
+
+
 
 </body>
 </html>
